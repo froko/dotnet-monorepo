@@ -1,3 +1,13 @@
 {
-  "name": "froko.Common.Facts"
+  "name": "froko.Common.Facts",
+  "targets": {
+    "test": {
+      "executor": "@nx-dotnet/core:test",
+      "options": {
+        "logger": "trx",
+        "settings": "../coverlet.runsettings",
+        "resultsDirectory": "../../dist/test-results"
+      }
+    }
+  }
 }
