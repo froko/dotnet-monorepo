@@ -9,8 +9,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepare": "is-ci || husky install",
-    "format": "prettier . --write",
+    "prepare": "(is-ci || husky install) && nx g @nx-dotnet/core:restore",
+    "format": "prettier . --write && nx run-many --target=lint --fix",
     "affected": "nx affected -t lint,build,test --parallel",
     "lint": "nx run-many -t lint --parallel",
     "build": "nx run-many -t build --parallel",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
+    "@nx-dotnet/core": "^2.1.2",
     "@nx/js": "^17.2.8",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
