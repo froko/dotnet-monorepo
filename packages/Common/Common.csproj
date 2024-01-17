@@ -1,7 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>froko.Common</RootNamespace>
+    <PackageId>froko.Common</PackageId>
+    <Authors>Patrick Ineichen</Authors>
+    <Description>Provides common functionality</Description>
+    <PackageProjectUrl>https://github.com/froko/dotnet-monorepo</PackageProjectUrl>
+    <PackageReadmeFile>docs/README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/froko/dotnet-monorepo</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="docs/" />
+  </ItemGroup>
 
 </Project>

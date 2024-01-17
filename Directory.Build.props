@@ -19,6 +19,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
+    <Version></Version>
+  </PropertyGroup>
+  <PropertyGroup>
     <RestorePackagesWithLockFile>false</RestorePackagesWithLockFile>
   </PropertyGroup>
 </Project>
