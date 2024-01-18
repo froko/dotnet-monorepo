@@ -3,13 +3,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   release:
-    uses: ./.github/setup
-
+    runs-on: ubuntu-latest
     steps:
+      - uses: './github/setup.yaml'
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
