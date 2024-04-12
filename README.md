@@ -1,3 +1,3 @@
-# Nx MonoRepo starter project
+# .NET MonoRepo starter project
 
-A solid starting point for your new Nx based monorepo.
+A solid starting point for your new Nx based .NET monorepo.
