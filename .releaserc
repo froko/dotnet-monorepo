@@ -10,7 +10,6 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@droidsolutions-oss/semantic-release-update-file",
-    "@droidsolutions-oss/semantic-release-nuget",
     [
       "@semantic-release/npm",
       {

@@ -8,9 +8,6 @@ importers:
 
   .:
     devDependencies:
-      '@droidsolutions-oss/semantic-release-nuget':
-        specifier: ^2.0.1
-        version: 2.0.1
       '@droidsolutions-oss/semantic-release-update-file':
         specifier: ^1.4.0
         version: 1.4.0
@@ -1551,13 +1548,6 @@ packages:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
     dev: false
-
-  /@droidsolutions-oss/semantic-release-nuget@2.0.1:
-    resolution: {integrity: sha512-KF3uNs74fpJfwKNjympSFT4+nydqEtmV9PQpRscmtsOUOX0YTFu04cz6qSiZAfvReTfQSJdWPd6RlpPUbPRkTg==}
-    engines: {node: '>=18.0.0'}
-    dependencies:
-      execa: 8.0.1
-    dev: true
 
   /@droidsolutions-oss/semantic-release-update-file@1.4.0:
     resolution: {integrity: sha512-kl9krFVGLOklI7YswoghWkI4muQ8iV6mDg/3lAed0dlZGsoRvdH5IMLxQ2FeJzvcgh7QjuZN1SggzsOo9AV+9w==}
