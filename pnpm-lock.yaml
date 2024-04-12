@@ -8,6 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@droidsolutions-oss/semantic-release-nuget':
+        specifier: ^2.0.1
+        version: 2.0.1
+      '@droidsolutions-oss/semantic-release-update-file':
+        specifier: ^1.4.0
+        version: 1.4.0
       '@nx-dotnet/core':
         specifier: ^2.2.0
         version: 2.2.0(@nx/js@18.2.4)(nx@18.2.4)(prettier@3.2.5)
@@ -1545,6 +1551,21 @@ packages:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
     dev: false
+
+  /@droidsolutions-oss/semantic-release-nuget@2.0.1:
+    resolution: {integrity: sha512-KF3uNs74fpJfwKNjympSFT4+nydqEtmV9PQpRscmtsOUOX0YTFu04cz6qSiZAfvReTfQSJdWPd6RlpPUbPRkTg==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      execa: 8.0.1
+    dev: true
+
+  /@droidsolutions-oss/semantic-release-update-file@1.4.0:
+    resolution: {integrity: sha512-kl9krFVGLOklI7YswoghWkI4muQ8iV6mDg/3lAed0dlZGsoRvdH5IMLxQ2FeJzvcgh7QjuZN1SggzsOo9AV+9w==}
+    engines: {node: '>= 14.0.0'}
+    dependencies:
+      aggregate-error: 3.1.0
+      lodash.template: 4.5.0
+    dev: true
 
   /@emmetio/abbreviation@2.3.3:
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -6007,6 +6028,10 @@ packages:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: true
 
+  /lodash._reinterpolate@3.0.0:
+    resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
+    dev: true
+
   /lodash.capitalize@4.2.1:
     resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}
     dev: true
@@ -6025,6 +6050,19 @@ packages:
 
   /lodash.isstring@4.0.1:
     resolution: {integrity: sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==}
+    dev: true
+
+  /lodash.template@4.5.0:
+    resolution: {integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==}
+    dependencies:
+      lodash._reinterpolate: 3.0.0
+      lodash.templatesettings: 4.2.0
+    dev: true
+
+  /lodash.templatesettings@4.2.0:
+    resolution: {integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==}
+    dependencies:
+      lodash._reinterpolate: 3.0.0
     dev: true
 
   /lodash.uniqby@4.7.0:
