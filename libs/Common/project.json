@@ -1,0 +1,11 @@
+{
+  "name": "Common",
+  "targets": {
+    "format": {
+      "executor": "@nx-dotnet/core:format",
+      "options": {
+        "fix": true
+      }
+    }
+  }
+}
