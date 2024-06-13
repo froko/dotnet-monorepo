@@ -20,12 +20,12 @@
   "devDependencies": {
     "@droidsolutions-oss/semantic-release-update-file": "^1.4.0",
     "@nx-dotnet/core": "^2.2.0",
-    "@nx/js": "19.0.2",
+    "@nx/js": "19.2.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "nx": "^19.0.0",
-    "prettier": "^3.2.5",
-    "semantic-release": "^23.0.8"
+    "nx": "^19.2.3",
+    "prettier": "^3.3.2",
+    "semantic-release": "^24.0.0"
   },
-  "packageManager": "pnpm@9.1.0"
+  "packageManager": "pnpm@9.3.0"
 }
