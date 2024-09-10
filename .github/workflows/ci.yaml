@@ -6,14 +6,31 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: write
+  checks: write
+  pull-requests: write
+
 jobs:
   main:
     runs-on: ubuntu-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_NOLOGO: true
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: false
+      DOTNET_MULTILEVEL_LOOKUP: 0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -42,8 +59,24 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Find Git SHAs for affected tasks
-        uses: nrwl/nx-set-shas@v4
+      - name: Run all tasks
+        run: pnpm all
 
-      - name: Run affected tasks
-        run: pnpm affected
+      - name: Create coverage report
+        if: ${{ hashFiles('dist/test-results/') != '' }}
+        uses: danielpalme/ReportGenerator-GitHub-Action@v5.3.9
+        with:
+          reports: './dist/test-results/**/coverage.cobertura.xml'
+          targetdir: './dist/test-results/coverage'
+          reporttypes: 'Cobertura'
+
+      - name: Publish Test Results
+        if: ${{ hashFiles('dist/test-results/') != '' }}
+        uses: bibipkins/dotnet-test-reporter@v1.4.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-title: 'Unit Test Results'
+          results-path: ./dist/test-results/*.trx
+          coverage-path: ./dist/test-results/coverage/Cobertura.xml
+          coverage-type: cobertura
+          coverage-threshold: 80
