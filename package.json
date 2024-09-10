@@ -9,6 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "prepare": "nx g @nx-dotnet/core:restore",
     "format": "prettier . --write && nx run-many -t format --parallel",
     "affected": "nx affected -t lint,build,test",
     "all": "nx run-many -t lint,build,test",
@@ -18,6 +19,8 @@
     "release": "semantic-release"
   },
   "devDependencies": {
+    "@nx-dotnet/core": "^2.4.5",
+    "@nx/js": "19.6.6",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "nx": "^19.6.6",
