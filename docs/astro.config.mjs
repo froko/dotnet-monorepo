@@ -10,9 +10,9 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'nx-monorepo',
+      title: 'dotnet-monorepo',
       social: {
-        github: 'https://github.com/froko/nx-monorepo'
+        github: 'https://github.com/froko/dotnet-monorepo'
       },
       sidebar: [
         {
