@@ -17,7 +17,8 @@
     },
     "test": {
       "dependsOn": ["build"],
-      "cache": true
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/test-results"]
     }
   },
   "plugins": ["@nx-dotnet/core"]
