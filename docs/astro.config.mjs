@@ -6,13 +6,13 @@ import simplePlantUML from '@akebifiky/remark-simple-plantuml';
 export default defineConfig({
   outDir: '../dist/docs',
   markdown: {
-    remarkPlugins: [simplePlantUML]
+    remarkPlugins: [simplePlantUML],
   },
   integrations: [
     starlight({
       title: 'dotnet-monorepo',
       social: {
-        github: 'https://github.com/froko/dotnet-monorepo'
+        github: 'https://github.com/froko/dotnet-monorepo',
       },
       sidebar: [
         {
@@ -29,22 +29,22 @@ export default defineConfig({
             { label: 'Architecture Decisions', link: '/arc42/architecture-decisions' },
             { label: 'Quality Requirements', link: '/arc42/quality-requirements' },
             { label: 'Risks and Technical Depts', link: '/arc42/risks-and-technical-depts' },
-            { label: 'Glossary', link: '/arc42/glossary' }
-          ]
+            { label: 'Glossary', link: '/arc42/glossary' },
+          ],
         },
         {
           label: 'Concepts',
-          autogenerate: { directory: 'concepts' }
+          autogenerate: { directory: 'concepts' },
         },
         {
           label: 'Guides',
-          autogenerate: { directory: 'guides' }
+          autogenerate: { directory: 'guides' },
         },
         {
           label: 'References',
-          autogenerate: { directory: 'references' }
-        }
-      ]
-    })
-  ]
+          autogenerate: { directory: 'references' },
+        },
+      ],
+    }),
+  ],
 });
