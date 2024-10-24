@@ -11,16 +11,18 @@ permissions:
   checks: write
   pull-requests: write
 
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+  DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: false
+  DOTNET_MULTILEVEL_LOOKUP: 0
+
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_NOLOGO: true
-      DOTNET_GENERATE_ASPNET_CERTIFICATE: false
-      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: false
-      DOTNET_MULTILEVEL_LOOKUP: 0
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,24 +45,17 @@ jobs:
           version: 9
           run_install: false
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Run all tasks
-        run: pnpm all
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Run affected tasks
+        run: pnpm affected
+
+      #      - name: Run all tasks
+      #        run: pnpm all
 
       - name: Create coverage report
         if: ${{ hashFiles('dist/test-results/') != '' }}
