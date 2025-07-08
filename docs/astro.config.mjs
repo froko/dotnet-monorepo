@@ -11,9 +11,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'dotnet-monorepo',
-      social: {
-        github: 'https://github.com/froko/dotnet-monorepo',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/froko/dotnet-monorepo' }
+      ],
       sidebar: [
         {
           label: 'Architecture',
